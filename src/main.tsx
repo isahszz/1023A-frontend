@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 //import App from './App.tsx'
 // import Container from './Container.tsx'
 import Pagina from './Pagina'
-import cadastro from './cadastro'
+import Cadastro from './cadastro'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -12,6 +12,6 @@ createRoot(document.getElementById('root')!).render(
     <Container nome='Body'/>
     <Container nome='Footer'/> */}
     <Pagina/>
-    <cadastro/>
+    <Cadastro/>
   </StrictMode>,
 )   

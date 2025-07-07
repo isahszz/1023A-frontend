@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import './Pagina.css'
 interface ProdutosState {
     id: number,
     nome: string,
@@ -7,7 +6,7 @@ interface ProdutosState {
     categoria: string
 }
 
-function Pagina() {
+function Cadastro() {
     const [id, setId] = useState("")
     const [nome, setNome] = useState("")
     const [preco, setPreco] = useState("")
@@ -138,4 +137,4 @@ function Pagina() {
     )
 }
 
-export default cadastro
+export default Cadastro
