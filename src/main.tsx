@@ -1,17 +1,34 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-//import './index.css'
-//import App from './App.tsx'
-// import Container from './Container.tsx'
-import Pagina from './Pagina'
-import Cadastro from './cadastro'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+
+import Pagina from "./Pagina.tsx"
+import Cadastro from './Cadastro.tsx'
+import Catalogo from './Catalogo.tsx'
+import Agenda from './Agenda.tsx'
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Pagina/>
+  },
+  {
+    path:"/Cadastrar",
+    element:<Cadastro/>
+  },
+   {
+    path:"/Serviços",
+    element:<Catalogo/>
+  },
+  {
+    path:"/Agendar",
+    element:<Agenda/>
+  },
+  
+])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <Container nome='Header'/>
-    <Container nome='Body'/>
-    <Container nome='Footer'/> */}
-    <Pagina/>
-    <Cadastro/>
+    <RouterProvider router={router}/>
   </StrictMode>,
-)   
+)

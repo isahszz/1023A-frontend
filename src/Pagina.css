@@ -1,88 +1,42 @@
 body {
-    margin: 0px;
+  margin: 0;
+  background-color: pink;
 }
 
 header {
-    background-color: pink;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 10vw;
-    align-items: center;
-    min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
 }
 
-nav>ul {
-    list-style: none;
-    margin: 0px;
-    display: flex;
-    gap: 15px;
+header h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-nav>ul>li>a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-
-}
 main {
-    margin-top: 15px;
-    padding:0px 10vw;
-    display:flex ;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10vw;
 }
 
-main>div{
-    flex:1
-}
-.container-listagem{
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    
-}
-
-.produto-container{
-    box-sizing: border-box;
-    border: 1px solid #f0f0f0;
-    padding: 15px; 
-    box-shadow:0px 0px 5px 5px rgba(30, 30, 30, 0.1);
-    min-height: 200px;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-  
-.container-cadastro{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    padding: 15px;
-    border:  1px solid #f0f0f0;
-    box-shadow: 0px 0px 10px 3px rgba(30, 30, 30, 0.1);
+main a {
+  padding: 12px 24px;
+  background-color: #e91e63;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-form>input[type="text"]{
-    padding:8px ;
-    border: 1px solid #f0f0f0;
+main a:hover {
+  background-color: #c2185b;
 }
-form>input[type="text"]:focus{
-    outline:1px solid #0205a344;
-}
-form>input[type="submit"]{
-    max-width:150px;
-    padding:8px ;
-    background-color: rgb(223, 81, 128);
-    color: white;
-    border: 1px solid #f0f0f0;
-    font-weight: bold;
-}
-.mensagem{
-    position:absolute ;
-    right: 15px;
-    background-color: rgb(243, 126, 188);
-    color:#58151C;
-    padding:8px 20px;
-    border: 1px solid rgb(241, 174, 181);
-    border-radius: 4px;
-}
+
