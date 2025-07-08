@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './Pagina.css';
 import './Pagina.tsx'
 interface ClientesState {
     id: number,
@@ -80,10 +81,11 @@ function Cadastro() {
                     </div>
                 }
                 <div className="container-cadastro">
+                    <h2>Cadastrar Cliente</h2>
                     <form onSubmit={TrataCadastro}>
                         <input type="text" name="id" id="id" onChange={trataId} placeholder="Id" />
                         <input type="text" name="nome" id="nome" onChange={trataNome} placeholder="Nome" />
-                        <input type="number" name="telefone" id="telefone" onChange={trataTelefone} placeholder="Telefone" />
+                        <input type="text" name="telefone" id="telefone" onChange={trataTelefone} placeholder="Telefone" />
                         <input type="submit" value="Cadastrar" />
                     </form>
 

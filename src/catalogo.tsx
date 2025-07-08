@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './Pagina.css';
 import './Pagina.tsx'
 interface ClientesState {
     id: number,
@@ -27,7 +28,7 @@ function Catalogo() {
             }
         }
         buscaDados()
-    }, [])// [] => significa as dependências do useEffects
+    }, [])
     async function TrataCadastro(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         //Criar um novo produto
@@ -45,7 +46,7 @@ function Catalogo() {
                 body: JSON.stringify(novoProduto)
             })
             if (resposta.ok) {
-                setMensagem("Cadastro realizado com sucesso!");
+                setMensagem("Catalogo!");
                 setId("");
                 setNome("");
                 setPreco("")
@@ -80,6 +81,7 @@ function Catalogo() {
                     </div>
                 }
                 <div className="container-cadastro">
+                    <h2>Ver Catalogo Disponivel</h2>
                     <form onSubmit={TrataCadastro}>
                         <input type="text" name="id" id="id" onChange={trataId} placeholder="Id" />
                         <input type="text" name="nome" id="nome" onChange={trataNome} placeholder="Nome" />
