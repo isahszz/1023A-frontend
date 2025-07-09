@@ -19,7 +19,7 @@ function Agenda() {
     useEffect(() => {
         const buscaDados = async () => {
             try {
-                const resultado = await fetch("http://localhost:8000/agenda")
+                const resultado = await fetch("http://localhost:8000/agendamento")
                 if (resultado.status === 400) {
                     const erro = await resultado.json()
                     setMensagem(erro.mensagem)
@@ -42,7 +42,7 @@ function Agenda() {
         }
 
         try {
-            const resposta = await fetch("http://localhost:8000/agenda", {
+            const resposta = await fetch("http://localhost:8000/agendamento", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

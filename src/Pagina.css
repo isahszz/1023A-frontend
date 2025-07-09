@@ -35,13 +35,15 @@ header h1:last-child {
 
 main {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;    
+  gap: 80px;               
   padding: 100px 10vw 40px;
 }
 
-/* Botões da página inicial com letra menor */
 main a {
+  width: 80px;
+  text-align: center;
   padding: 10px 20px;
   background-color: #e91e63;
   color: white;
@@ -58,38 +60,7 @@ main a:hover {
   background-color: #c2185b;
 }
 
-/* Footer com linha superior e inferior */
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f16a99;
-  color: #880e4f;
-  font-size: 13px;
-  padding: 6px 10px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  line-height: 1.4;
-  text-align: center;
-}
 
-footer .linha-superior {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-footer .linha-inferior {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-footer p {
-  margin: 0;
-}
-
-/* Estilo para a seção de cadastro */
 .container-cadastro {
   background-color: #ffe0eb;
   padding: 40px;

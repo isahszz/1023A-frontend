@@ -17,13 +17,10 @@ function Pagina() {
                 <NavLink to="/Cadastrar" end>Cadastro</NavLink>
                 <NavLink to="/Serviços" end>Catalogo</NavLink>
                 <NavLink to="/Agendar" end>Agenda</NavLink>
+                <NavLink to="/Informar" end>Informação</NavLink>
             </main>
             <footer>
-                <p>Informações:</p>
-                <p>Rua: Nagasaki</p>
-                <p>Avenida: Dourados</p>
-                <p>Numero: 333</p>
-
+    
             </footer>
         </>
     )
