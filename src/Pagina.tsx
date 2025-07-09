@@ -8,7 +8,7 @@ function Pagina() {
                 <div>
                     <h2> </h2>
                     <h1>SEJA BEM VINDO</h1>
-                    <h2>Salão de Beleza Das Isas</h2>
+                    <h2>Salão de Beleza</h2>
                 </div>
 
 
@@ -22,7 +22,7 @@ function Pagina() {
                 <p>Informações:</p>
                 <p>Rua: Nagasaki</p>
                 <p>Avenida: Dourados</p>
-                <p>Numero: 150</p>
+                <p>Numero: 333</p>
 
             </footer>
         </>

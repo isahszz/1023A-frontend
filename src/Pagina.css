@@ -1,8 +1,17 @@
 body {
   margin: 0;
-  background-color: pink;
+  background-color: #f9e2ea; 
   font-family: Arial, sans-serif;
+  font-size: 0.95rem; 
+
 }
+h1{
+  color: deeppink;
+}
+h2{
+  color: #d44a7b;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -14,13 +23,13 @@ header {
 
 header h1:first-child {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.2rem; 
   margin: 0;
 }
 
 header h1:last-child {
   color: white;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 10px;
 }
 
@@ -28,17 +37,18 @@ main {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 100px 10vw 40px; 
+  padding: 100px 10vw 40px;
 }
 
+/* Botões da página inicial com letra menor */
 main a {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background-color: #e91e63;
   color: white;
   text-decoration: none;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -48,6 +58,7 @@ main a:hover {
   background-color: #c2185b;
 }
 
+/* Footer com linha superior e inferior */
 footer {
   position: fixed;
   bottom: 0;
@@ -55,29 +66,150 @@ footer {
   width: 100%;
   background-color: #f16a99;
   color: #880e4f;
-  text-align: center;
-  font-size: 14px;
-  padding: 10px 0;
+  font-size: 13px;
+  padding: 6px 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   line-height: 1.4;
+  text-align: center;
 }
+
+footer .linha-superior {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+footer .linha-inferior {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 footer p {
-  margin: 2px 0;
-}
-body {
-  background-color: #f9e2ea; /* rosa claro mais neutro */
-  font-family: Arial, sans-serif;
   margin: 0;
 }
+
+/* Estilo para a seção de cadastro */
+.container-cadastro {
+  background-color: #ffe0eb;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .container-cadastro h2 {
   font-size: 2.2rem;
-  color: #d81b60;
   margin-bottom: 30px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: linear-gradient(to right, #f06292, #f8bbd0);
+  background: linear-gradient(to right, #f50057, #f8bbd0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.container-cadastro label {
+  display: block;
+  margin-bottom: 8px;
+  color: #d81b60;
+  font-weight: bold;
+}
+
+.container-cadastro input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #f48fb1;
+  border-radius: 8px;
+  background-color: #fff0f5;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  outline-color: #ec407a;
+}
+
+.container-cadastro button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ec407a;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container-cadastro button:hover {
+  background-color: #d81b60;
+}
+
+/* Estilo para a seção de agenda */
+.container-agenda {
+  background-color: #ffe3ef;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container-agenda h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #f50057, #f8bbd0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.container-agenda input[type="text"],
+.container-agenda input[type="datetime-local"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #f48fb1;
+  border-radius: 10px;
+  background-color: #fff0f6;
+  font-size: 1rem;
+  color: #880e4f;
+  outline-color: #f06292;
+  transition: all 0.3s ease;
+}
+
+.container-agenda input[type="text"]::placeholder,
+.container-agenda input[type="datetime-local"]::placeholder {
+  color: #ad1457;
+}
+
+.container-agenda input[type="submit"] {
+  background-color: #ec407a;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container-agenda input[type="submit"]:hover {
+  background-color: #d81b60;
+}
+
+.mensagem {
+  background-color: #f8bbd0;
+  border: 2px solid #ec407a;
+  color: #880e4f;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0 auto 20px;
+  max-width: 500px;
+  text-align: center;
+  font-weight: bold;
+}

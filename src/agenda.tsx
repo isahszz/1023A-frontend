@@ -87,6 +87,7 @@ function Agenda() {
                     </div>
                 }
                 <div className="container-agenda">
+                    <h2>Agende seu momento de luxo.</h2>
                     <form onSubmit={TrataAgenda}>
                         <input type="text" name="id" id="id" value={id} onChange={trataId} placeholder="Id" />
                         <input type="text" name="clientes" id="clientes" value={clientes} onChange={trataClientes} placeholder="Clientes" />

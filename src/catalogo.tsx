@@ -85,7 +85,7 @@ function Catalogo() {
                     <form onSubmit={TrataCadastro}>
                         <input type="text" name="id" id="id" onChange={trataId} placeholder="Id" />
                         <input type="text" name="nome" id="nome" onChange={trataNome} placeholder="Nome" />
-                        <input type="number" name="preco" id="preco" onChange={trataPreco} placeholder="Preco" />
+                        <input type="text" name="preco" id="preco" onChange={trataPreco} placeholder="Preco" />
                         <input type="submit" value="Cadastrar" />
                     </form>
 
