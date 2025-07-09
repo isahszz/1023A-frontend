@@ -9,6 +9,7 @@ function Pagina() {
                     <h2> </h2>
                     <h1>SEJA BEM VINDO</h1>
                     <h2>Salão de Beleza</h2>
+                    <h1>Mais que um salão, uma experiência de transformação.</h1>
                 </div>
 
 
