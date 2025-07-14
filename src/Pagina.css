@@ -162,3 +162,36 @@ main a:hover {
   text-align: center;
   font-weight: bold;
 }
+.container-listagem {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.procedimento-container {
+  background-color: #ffe0eb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.procedimento-container:hover {
+  transform: translateY(-5px);
+}
+
+.produto-nome {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d81b60;
+  margin-bottom: 10px;
+}
+
+.produto-preco {
+  font-size: 1rem;
+  color: #880e4f;
+}

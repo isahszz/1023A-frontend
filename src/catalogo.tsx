@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import './Pagina.css';
 import './Pagina.tsx'
 interface ProcedimentoState {
     id: number,
     nome: string,
-    preco: number
+    preco: number,
+    imagem: string
 }
 
 function Catalogo() {
-    const [id, setId] = useState("")
-    const [nome, setNome] = useState("")
-    const [preco, setPreco] = useState("")
     const [mensagem, setMensagem] = useState("")
     const [procedimento, setProcedimento] = useState<ProcedimentoState[]>([])
 
@@ -36,49 +34,7 @@ function Catalogo() {
         }
         buscaDados()
     }, [])
-    async function TrataCadastro(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        //Criar um novo produto
-        const novoProduto: ProcedimentoState = {
-            id: parseInt(id),
-            nome: nome,
-            preco: parseFloat(preco)
-        }
-        try {
-            const resposta = await fetch("http://localhost:8000/procedimento", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(novoProduto)
-            })
-            if (resposta.ok) {
-                setMensagem("Catalogo!");
-                setId("");
-                setNome("");
-                setPreco("")
-            }
-            if (resposta.status === 400) {
-                const erro = await resposta.json()
-                setMensagem(erro.mensagem)
-                //console.log(erro.mensagem)
-            }
 
-        }
-        catch (erro) {
-            setMensagem("Fetch não functiona")
-        }
-
-    }
-    function trataId(event: React.ChangeEvent<HTMLInputElement>) {
-        setId(event.target.value)
-    }
-    function trataNome(event: React.ChangeEvent<HTMLInputElement>) {
-        setNome(event.target.value)
-    }
-    function trataPreco(event: React.ChangeEvent<HTMLInputElement>) {
-        setPreco(event.target.value)
-    }
     return (
         <>
             <main>
@@ -87,15 +43,24 @@ function Catalogo() {
                         <p>{mensagem}</p>
                     </div>
                 }
-                <div className="container-cadastro">
-                    <h2>Ver Catalogo Disponivel</h2>
-                    <form onSubmit={TrataCadastro}>
-                        <input type="text" name="id" id="id" onChange={trataId} placeholder="Id" />
-                        <input type="text" name="nome" id="nome" onChange={trataNome} placeholder="Nome" />
-                        <input type="text" name="preco" id="preco" onChange={trataPreco} placeholder="Preco" />
-                        <input type="submit" value="Catalogo" />
-                    </form>
 
+                <div className="container-listagem">
+                    <h2>Ver Catalogo Disponivel</h2>
+
+                    {procedimento.map(procedimento => {
+                        return (
+                            <div className="procedimento-container" key={procedimento.id}>
+                                <div className="produto-nome">
+                                    {procedimento.nome}
+                                </div>
+                                <div className="produto-preco">
+                                    {procedimento.preco}
+                                </div>
+                                <img src={procedimento.imagem} alt="Imagem do procedimento" />
+                            </div>
+
+                        )
+                    })}
                 </div>
             </main>
             <footer></footer>

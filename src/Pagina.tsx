@@ -7,9 +7,8 @@ function Pagina() {
             <header>
                 <div>
                     <h2> </h2>
-                    <h1>SEJA BEM VINDO</h1>
-                    <h2>Salão de Beleza</h2>
-                    <h3>Mais que um salão, uma experiência de transformação.</h3>
+                    <h1>SEJA BEM VINDO AO NOSSO SALÃO DE BELEZA</h1>
+                    <h2>Mais que um salão, uma experiência de transformação</h2>
                 </div>
 
 
