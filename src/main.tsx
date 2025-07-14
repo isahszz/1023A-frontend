@@ -6,7 +6,6 @@ import Pagina from "./Pagina.tsx"
 import Cadastro from './Cadastro.tsx'
 import Catalogo from './Catalogo.tsx'
 import Agenda from './Agenda.tsx'
-import Informacao from './Informacao.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,11 +24,7 @@ const router = createBrowserRouter([
     path:"/Agendar",
     element:<Agenda/>
   },
-  {
-    path:"/Informar",
-    element:<Informacao/>
-  },
-  
+    
 ])
 
 createRoot(document.getElementById('root')!).render(

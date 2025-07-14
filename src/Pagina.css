@@ -71,18 +71,6 @@ main a:hover {
   margin: 0 auto;
 }
 
-.container-cadastro h2 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, #f50057, #f8bbd0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-}
-
 .container-cadastro label {
   display: block;
   margin-bottom: 8px;
@@ -118,7 +106,6 @@ main a:hover {
   background-color: #d81b60;
 }
 
-/* Estilo para a seção de agenda */
 .container-agenda {
   background-color: #ffe3ef;
   padding: 40px;
@@ -127,16 +114,7 @@ main a:hover {
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-}
 
-.container-agenda h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  background: linear-gradient(to right, #f50057, #f8bbd0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .container-agenda input[type="text"],
