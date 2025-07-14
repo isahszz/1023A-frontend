@@ -15,6 +15,7 @@ function Cadastro() {
 
     useEffect(() => {
         const buscaDados = async () => {
+            
             try {
                 const resultado = await fetch("http://localhost:8000/clientes")
                 if (resultado.status === 400) {
@@ -22,6 +23,7 @@ function Cadastro() {
                     setMensagem(erro.mensagem)
                     //console.log(erro.mensagem)
                 }
+                
             }
             catch (erro) {
                 setMensagem("Fetch não functiona")

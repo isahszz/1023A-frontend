@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Pagina.css';
 import './Pagina.tsx'
-interface ClientesState {
+interface ProcedimentoState {
     id: number,
     nome: string,
     preco: number
@@ -12,11 +12,18 @@ function Catalogo() {
     const [nome, setNome] = useState("")
     const [preco, setPreco] = useState("")
     const [mensagem, setMensagem] = useState("")
+    const [procedimento, setProcedimento] = useState<ProcedimentoState[]>([])
+
+
 
     useEffect(() => {
         const buscaDados = async () => {
             try {
                 const resultado = await fetch("http://localhost:8000/procedimento")
+                if (resultado.status === 200) {
+                    const dados = await resultado.json()
+                    setProcedimento(dados)
+                }
                 if (resultado.status === 400) {
                     const erro = await resultado.json()
                     setMensagem(erro.mensagem)
@@ -32,7 +39,7 @@ function Catalogo() {
     async function TrataCadastro(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         //Criar um novo produto
-        const novoProduto: ClientesState = {
+        const novoProduto: ProcedimentoState = {
             id: parseInt(id),
             nome: nome,
             preco: parseFloat(preco)
@@ -86,7 +93,7 @@ function Catalogo() {
                         <input type="text" name="id" id="id" onChange={trataId} placeholder="Id" />
                         <input type="text" name="nome" id="nome" onChange={trataNome} placeholder="Nome" />
                         <input type="text" name="preco" id="preco" onChange={trataPreco} placeholder="Preco" />
-                        <input type="submit" value="Cadastrar" />
+                        <input type="submit" value="Catalogo" />
                     </form>
 
                 </div>
