@@ -1,19 +1,17 @@
 body {
   margin: 0;
-  background-color: #f9e2ea; 
+  background-color: #eec0d0; 
   font-family: Arial, sans-serif;
-  font-size: 0.95rem; 
+  font-size: 0.95rem;
+}
 
+h1 {
+  color: #ffffff;
 }
-h1{
-  
-  color: deeppink;
-}
-h2{
-  color: #d44a7b;
-}
+
 header {
   display: flex;
+  background: #ec407a;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -23,7 +21,7 @@ header {
 
 header h1:first-child {
   color: white;
-  font-size: 2.2rem; 
+  font-size: 2.2rem;
   margin: 0;
 }
 
@@ -36,8 +34,8 @@ header h1:last-child {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;    
-  gap: 80px;               
+  align-items: center;
+  gap: 80px;
   padding: 100px 10vw 40px;
 }
 
@@ -45,7 +43,7 @@ main a {
   width: 80px;
   text-align: center;
   padding: 10px 20px;
-  background-color: #e91e63;
+  background-color: #d81b60;
   color: white;
   text-decoration: none;
   border: none;
@@ -57,23 +55,27 @@ main a {
 }
 
 main a:hover {
-  background-color: #c2185b;
+  background-color: #ad1457;
 }
 
-
 .container-cadastro {
-  background-color: #ffe0eb;
+  background-color: #f8bbd0;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+.container-cadastro h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .container-cadastro label {
   display: block;
   margin-bottom: 8px;
-  color: #d81b60;
+  color: #c2185b;
   font-weight: bold;
 }
 
@@ -91,7 +93,7 @@ main a:hover {
 .container-cadastro button {
   width: 100%;
   padding: 12px;
-  background-color: #ec407a;
+  background-color: #d81b60;
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -102,22 +104,30 @@ main a:hover {
 }
 
 .container-cadastro button:hover {
-  background-color: #d81b60;
+  background-color: #ad1457;
 }
 
-.container-agenda {
-  background-color: #ffe3ef;
+.container-agendamento {
+  background-color: #fce4ec;
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-
+  border-left: 6px solid #d81b60;
+  border-right: 6px solid #d81b60;
 }
 
-.container-agenda input[type="text"],
-.container-agenda input[type="datetime-local"] {
+.container-agendamento h2 {
+  font-size: 1.8rem;
+  color: #c2185b;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container-agendamento input[type="text"],
+.container-agendamento input[type="datetime-local"] {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
@@ -130,13 +140,13 @@ main a:hover {
   transition: all 0.3s ease;
 }
 
-.container-agenda input[type="text"]::placeholder,
-.container-agenda input[type="datetime-local"]::placeholder {
+.container-agendamento input[type="text"]::placeholder,
+.container-agendamento input[type="datetime-local"]::placeholder {
   color: #ad1457;
 }
 
-.container-agenda input[type="submit"] {
-  background-color: #ec407a;
+.container-agendamento input[type="submit"] {
+  background-color: #d81b60;
   color: white;
   font-weight: bold;
   border: none;
@@ -147,8 +157,8 @@ main a:hover {
   transition: background-color 0.3s ease;
 }
 
-.container-agenda input[type="submit"]:hover {
-  background-color: #d81b60;
+.container-agendamento input[type="submit"]:hover {
+  background-color: #ad1457;
 }
 
 .mensagem {
@@ -162,25 +172,34 @@ main a:hover {
   text-align: center;
   font-weight: bold;
 }
+
 .container-listagem {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.procedimento-container {
-  background-color: #ffe0eb;
+.container-listagem h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #d81b60;
+  grid-column: 1 / -1;
+}
+
+.agendamento-container {
+  background-color: #f8bbd0;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease;
 }
 
-.procedimento-container:hover {
+.agendamento-container:hover {
   transform: translateY(-5px);
 }
 
@@ -194,4 +213,16 @@ main a:hover {
 .produto-preco {
   font-size: 1rem;
   color: #880e4f;
+}
+
+img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
