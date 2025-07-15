@@ -6,12 +6,15 @@ body {
 }
 
 h1 {
-  color: #000000;
+  color: #eb4b88;
+}
+h2{
+  color: #fce4ec;
 }
 
 header {
   display: flex;
-  background: #f35a8d;
+  background: #eb94b1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -43,7 +46,7 @@ main a {
   width: 80px;
   text-align: center;
   padding: 10px 20px;
-  background-color: #d81b60;
+  background-color: #fa4487;
   color: white;
   text-decoration: none;
   border: none;

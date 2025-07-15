@@ -32,7 +32,6 @@ function Agenda() {
         }
     }
 
-    // UseEffect inicial
     useEffect(() => {
         buscaDados()
     }, [])
