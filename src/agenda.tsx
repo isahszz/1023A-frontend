@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import './Pagina.tsx'
 import './Pagina.css'
 
-interface ClientesState {
+interface AgendamentoState {
     id: number,
     clientes: string,
     profissional: string,
@@ -14,16 +13,21 @@ function Agenda() {
     const [clientes, setClientes] = useState("")
     const [profissional, setProfissional] = useState("")
     const [datahora, setDatahora] = useState("")
-    const [agendamento, setAgendamento] = useState<ClientesState[]>([])
+    const [agendamentos, setAgendamentos] = useState<AgendamentoState[]>([])
     const [mensagem, setMensagem] = useState("")
+
+    useEffect(() => {
+        buscaDados()
+    }, [])
 
     const buscaDados = async () => {
         try {
             const resultado = await fetch("http://localhost:8000/agendamento")
             if (resultado.status === 200) {
                 const dados = await resultado.json()
-                setAgendamento(dados)
-            } else if (resultado.status === 400) {
+                console.log("Agendamentos carregados:", dados)
+                setAgendamentos(dados)
+            } else {
                 const erro = await resultado.json()
                 setMensagem(erro.mensagem)
             }
@@ -32,18 +36,14 @@ function Agenda() {
         }
     }
 
-    useEffect(() => {
-        buscaDados()
-    }, [])
-
     async function TrataAgendamento(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
-        const novoAgendamento: ClientesState = {
+        const novoAgendamento = {
             id: id ? parseInt(id) : 0,
             clientes: clientes,
             profissional: profissional,
-            datahora: datahora,
+            datahora: datahora
         }
 
         try {
@@ -57,53 +57,104 @@ function Agenda() {
 
             if (resposta.ok) {
                 setMensagem("Agendamento realizado com sucesso!")
-
                 setId("")
                 setClientes("")
                 setProfissional("")
                 setDatahora("")
-
                 buscaDados()
-            } else if (resposta.status === 400) {
+            } else {
+                const erro = await resposta.json()
+                setMensagem(erro.mensagem)
+            }
+
+        } catch (erro) {
+            setMensagem("Erro ao tentar conectar com o servidor.")
+        }
+    }
+
+    const excluirAgendamento = async (id: number) => {
+        console.log("Tentando excluir agendamento com id:", id)
+        try {
+            const resposta = await fetch(`http://localhost:8000/agendamento/${id}`, {
+                method: "DELETE"
+            })
+
+            if (resposta.ok) {
+                setMensagem("Agendamento excluído com sucesso!")
+                buscaDados()
+            } else {
                 const erro = await resposta.json()
                 setMensagem(erro.mensagem)
             }
         } catch (erro) {
-            setMensagem("Erro ao tentar conectar com o servidor.")
+            console.log(erro)
+            setMensagem("Erro ao excluir agendamento.")
         }
     }
 
     return (
         <>
             <main>
-                {mensagem && (
+                {mensagem &&
                     <div className="mensagem">
                         <p>{mensagem}</p>
                     </div>
-                )}
+                }
+
+                <div className="container-agendamento">
+                    <h2>Agende seu momento de luxo</h2>
+                    <form onSubmit={TrataAgendamento}>
+                        <input
+                            type="text"
+                            name="id"
+                            id="id"
+                            onChange={(e) => setId(e.target.value)}
+                            value={id}
+                            placeholder="ID"
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="clientes"
+                            id="clientes"
+                            onChange={(e) => setClientes(e.target.value)}
+                            value={clientes}
+                            placeholder="Cliente"
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="profissional"
+                            id="profissional"
+                            onChange={(e) => setProfissional(e.target.value)}
+                            value={profissional}
+                            placeholder="Profissional"
+                            required
+                        />
+                        <input
+                            type="datetime-local"
+                            name="datahora"
+                            id="datahora"
+                            onChange={(e) => setDatahora(e.target.value)}
+                            value={datahora}
+                            required
+                        />
+                        <input type="submit" value="Agendar" />
+                    </form>
+                </div>
 
                 <div className="container-listagem">
                     <h2>Agendamentos Realizados</h2>
 
-                    {agendamento.map(item => (
-                        <div className="agendamento-container" key={item.id}>
-                            <div><strong>ID:</strong> {item.id}</div>
-                            <div><strong>Cliente:</strong> {item.clientes}</div>
-                            <div><strong>Profissional:</strong> {item.profissional}</div>
-                            <div><strong>Data e Hora:</strong> {item.datahora}</div>
+                    {agendamentos.map(agendamento => (
+                        <div className="agendamento-container" key={agendamento.id}>
+                            <div><strong>ID:</strong> {agendamento.id}</div>
+                            <div><strong>Cliente:</strong> {agendamento.clientes}</div>
+                            <div><strong>Profissional:</strong> {agendamento.profissional}</div>
+                            <div><strong>Data e Hora:</strong> {agendamento.datahora}</div>
+                            <button onClick={() => excluirAgendamento(agendamento.id)}>Excluir</button>
                         </div>
                     ))}
-                </div>
-
-                <div className="container-agendamento">
-                    <h2>Agende seu momento de luxo.</h2>
-                    <form onSubmit={TrataAgendamento}>
-                        <input type="text" value={id} onChange={(e) => setId(e.target.value)} placeholder="ID" />
-                        <input type="text" value={clientes} onChange={(e) => setClientes(e.target.value)} placeholder="Cliente" />
-                        <input type="text" value={profissional} onChange={(e) => setProfissional(e.target.value)} placeholder="Profissional" />
-                        <input type="datetime-local" value={datahora} onChange={(e) => setDatahora(e.target.value)} placeholder="Data e Hora" />
-                        <input type="submit" value="Agendar" />
-                    </form>
                 </div>
             </main>
             <footer></footer>

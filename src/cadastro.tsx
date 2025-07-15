@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './Pagina.css';
 
 interface ClientesState {
-  id: number,
+  idcliente: number,
   nome: string,
-  telefone: string,  // ALTERADO para string
+  telefone: string
 }
 
 function Cadastro() {
@@ -22,7 +22,6 @@ function Cadastro() {
       const resultado = await fetch("http://localhost:8000/clientes")
       if (resultado.status === 200) {
         const dados = await resultado.json()
-        console.log("Clientes carregados:", dados)
         setClientes(dados)
       } else {
         const erro = await resultado.json()
@@ -38,7 +37,7 @@ function Cadastro() {
 
     const novoCliente = {
       nome: nome,
-      telefone: telefone  // envia como string direto, sem parseFloat
+      telefone: telefone
     }
 
     try {
@@ -100,7 +99,6 @@ function Cadastro() {
             <input
               type="text"
               name="nome"
-              id="nome"
               onChange={(e) => setNome(e.target.value)}
               value={nome}
               placeholder="Nome"
@@ -109,7 +107,6 @@ function Cadastro() {
             <input
               type="text"
               name="telefone"
-              id="telefone"
               onChange={(e) => setTelefone(e.target.value)}
               value={telefone}
               placeholder="Telefone"
@@ -121,12 +118,11 @@ function Cadastro() {
 
         <div className="container-listagem">
           <h2>Clientes Cadastrados</h2>
-
           {clientes.map(cliente => (
-            <div className="procedimento-container" key={cliente.id}>
+            <div className="procedimento-container" key={cliente.idcliente}>
               <div className="produto-nome">{cliente.nome}</div>
               <div className="produto-preco">Telefone: {cliente.telefone}</div>
-              <button onClick={() => excluirCliente(cliente.id)}>Excluir</button>
+              <button onClick={() => excluirCliente(cliente.idcliente)}>Excluir</button>
             </div>
           ))}
         </div>
